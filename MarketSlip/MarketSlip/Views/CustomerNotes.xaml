@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             x:Class="MarketSlip.Views.CustomerNotes">
+   
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image x:Name="Header" 
+                   VerticalOptions="StartAndExpand"
+                   HorizontalOptions="StartAndExpand"
+                   Source="MarketSlip.png" 
+             Aspect ="AspectFill"
+              />
+
+            <StackLayout
+            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+            AbsoluteLayout.LayoutFlags="All">
+
+                <Frame OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Label x:Name="lbl_username"
+                   FontAttributes="Bold"
+                   Text="Notes"/>
+                        <Entry x:Name="entry_notes"
+                   Text="{Binding username}"
+                   Placeholder="Notes"/>
+
+                        <Button x:Name="btnCreateNotes"
+                    Text="Save" 
+                    BackgroundColor="White" BorderWidth="2" BorderColor="Black"
+                    Clicked="btnCustomerNotes_Clicked"/>
+                        <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="For Assistance Please Visit www.MarketSlip.com"/>
+                        <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                           Text="Or Email Assistance@Sonixsoftwareltd.com"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Image x:Name="BgImage" 
+                   VerticalOptions="EndAndExpand"
+                   Source="LondonBackground.jpg"
+               Aspect="AspectFill"
+              />
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

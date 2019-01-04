@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MarketSlip.Models"
+             x:Class="MarketSlip.Views.LoginPage" 
+             BackgroundColor="White"  >
+  
+  
+
+    <ContentPage.BindingContext>
+
+        <viewmodels:LoginModel>
+
+        </viewmodels:LoginModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+      
+        <AbsoluteLayout>
+
+           
+
+            <StackLayout
+                
+            AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+            AbsoluteLayout.LayoutFlags="All">
+                <Image x:Name="Header" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   Source="MarketSlip.png" 
+                   WidthRequest="300" 
+                HeightRequest = "100"
+                MinimumHeightRequest = "100"
+                MinimumWidthRequest = "300"
+                       Aspect="Fill"
+              />
+                <Frame OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                     <Label x:Name="lbl_username"
+                   FontAttributes="Bold"
+                   Text="Username"/>
+                   <Entry x:Name="entry_user"
+                   Text="{Binding username}"
+                   Placeholder="username"/>
+                   <Label x:Name="lbl_password"
+                   FontAttributes="Bold"
+                   Text="Password"/>
+                        <Entry x:Name="entry_password"
+                   Text="{Binding password}"
+                     IsPassword="True"
+                   Placeholder="password"/>
+                    <Button x:Name="btnLogin"
+                    Text="Login" 
+                    BackgroundColor="White" BorderWidth="2" BorderColor="Black"
+                    Clicked="btnLogin_Clicked"/>
+                        <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"  FontSize="Small"
+                   FontAttributes="Bold"
+                           Text="For Registration Please Visit www.MarketSlip.com Or Contact Your Administrator "/>
+                        <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"  FontSize="Small"
+                   FontAttributes="Bold"
+                           Text="Or Email Assistance@Sonixsoftwareltd.com"/> 
+                        
+                    </StackLayout>
+                    
+                </Frame>
+             
+                <Image x:Name="BgImage" 
+                   VerticalOptions="EndAndExpand"
+                   Source="LondonBackground.jpg"
+               Aspect="AspectFill"
+              />
+            </StackLayout>
+          
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

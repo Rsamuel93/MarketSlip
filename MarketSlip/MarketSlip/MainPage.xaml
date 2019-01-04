@@ -2,13 +2,64 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MarketSlip"
+             xmlns:renderers="clr-namespace:MarketSlip.Renderers"
+             BackgroundColor="White"
              x:Class="MarketSlip.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <AbsoluteLayout>
+        <StackLayout
+        AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+        AbsoluteLayout.LayoutFlags="All">
+            <Image x:Name="Header" 
+                   VerticalOptions="StartAndExpand"
+                   HorizontalOptions="StartAndExpand"
+                   Source="MarketSlip.png" 
+             Aspect ="AspectFill"
+              />
+           
+            <Frame OutlineColor="Accent"
+                 
+             WidthRequest="300"
+             HorizontalOptions="Center"
+             VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Button x:Name="takePhoto" Text="Take Photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked" BorderWidth="2" BorderColor="Black"/>
+                   
+                    <Label x:Name="lbl_email"
+                   FontAttributes="Bold"
+                   Text="Recipient Email"/>
+                    <Entry x:Name="entry_email"
+            Placeholder="Recipient Email"/>
+                    <Label x:Name="lbl_filename"
+                   FontAttributes="Bold"
+                   Text="File Name"/>
+                    <Entry x:Name="entry_filename"
+            Placeholder="File Name"/>
+                    <Image x:Name="image" VerticalOptions="Center"
+                            />
+
+                    <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"  FontSize="Small"
+                           Text="For Assistance Contact Your Administrator"/>
+                    <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold" FontSize="Small"
+                           Text="Or Email Assistance@Sonixsoftwareltd.com"/>
+
+
+                </StackLayout>
+            </Frame>
+            <Label x:Name="lblUpload" HorizontalTextAlignment="End"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="EndAndExpand"
+                   FontAttributes="Bold"
+                           Text="...Uploading Please Allow Up To 1 Minute"/>
+         
+            <Image x:Name="BgImage"
+             VerticalOptions="EndAndExpand"
+             Source="LondonBackground.jpg"
+         Aspect="AspectFill"
+              />
+        </StackLayout>
+    </AbsoluteLayout>
 
 </ContentPage>
