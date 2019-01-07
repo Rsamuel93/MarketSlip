@@ -62,7 +62,7 @@ namespace MarketSlip.Views
                 {
 
 
-                    await DisplayAlert("Login Failed", "Username Or Password Incorrect", "Ok");
+                    await DisplayAlert("Login failed", "Username or password incorrect", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
                     return;
@@ -72,7 +72,7 @@ namespace MarketSlip.Views
                 if (Convert.ToDateTime(GlobalVar.ExpiryDate) < DateTime.Today)
                 {
 
-                    await DisplayAlert("Subscription Expired", "Your Subscription Has Expired, Please Visit Website To Resubscribe", "Ok");
+                    await DisplayAlert("Subscription expired", "Your subscription has expired, Please visit website to resubscribe", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
                     return;
@@ -80,7 +80,7 @@ namespace MarketSlip.Views
                 if (GlobalVar.intpaid == 1)
                 {
 
-                    await DisplayAlert("Payemnt Issue", "Problem WIth Payments Please Contact Assistance@sonixsoftwareltd.com", "Ok");
+                    await DisplayAlert("Payemnt issue", "Problem with payments please contact assistance@sonixsoftwareltd.com", "Ok");
                     entry_user.Text = null;
                     entry_password.Text = null;
                     return;
@@ -98,7 +98,7 @@ namespace MarketSlip.Views
             {
                 btnLogin.IsEnabled = true;
                 btnLogin.Text = "Login";
-                await DisplayAlert("Please Check Internet Connection And Try Again", "Error", "Ok");
+                await DisplayAlert("Please check internet connection and try again", "Error", "Ok");
 
             }
         }

@@ -28,10 +28,11 @@ namespace MarketSlip.Views
 
             try
             {
+               
                 btnCreateNotes.IsEnabled = false;
                 btnCreateNotes.Text = "Saving...";
-                await api.CustomerNotesAsync(entry_notes.Text, GlobalVar.strGuid, GlobalVar.strfilename, GlobalVar.strMillisecond, GlobalVar.User,GlobalVar.strRecipient);
-                await DisplayAlert("      Notes Added Successfully", "", "OK");
+                await api.CustomerNotesAsync(entry_notes.Text, GlobalVar.strGuid, GlobalVar.strfilename, GlobalVar.strMillisecond, GlobalVar.User, GlobalVar.strRecipient);
+                await DisplayAlert("        Notes added successfully", "", "OK");
                 await Navigation.PushAsync(new MainPage());
                 btnCreateNotes.IsEnabled = true;
                 btnCreateNotes.Text = "Save";
@@ -39,8 +40,9 @@ namespace MarketSlip.Views
             catch (Exception)
             {
 
-                await DisplayAlert("Error", "Error", "Ok");
-
+                await DisplayAlert("       Error", " ", "Ok");
+                btnCreateNotes.IsEnabled = true;
+                btnCreateNotes.Text = "Save";
             }
         }
     }

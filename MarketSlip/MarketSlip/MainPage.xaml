@@ -23,27 +23,28 @@
              HorizontalOptions="Center"
              VerticalOptions="CenterAndExpand">
                 <StackLayout>
-                    <Button x:Name="takePhoto" Text="Take Photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked" BorderWidth="2" BorderColor="Black"/>
-                   
+                    <Button x:Name="takePhoto" Text="Take photo"  BackgroundColor="AliceBlue" Clicked="Take_Photo_Button_Clicked" BorderWidth="2" BorderColor="Black"/>
+
                     <Label x:Name="lbl_email"
                    FontAttributes="Bold"
-                   Text="Recipient Email"/>
+                   Text="Recipient email"/>
                     <Entry x:Name="entry_email"
-            Placeholder="Recipient Email"/>
+            Placeholder="Recipient email"/>
                     <Label x:Name="lbl_filename"
                    FontAttributes="Bold"
-                   Text="File Name"/>
+                   Text="File name"/>
                     <Entry x:Name="entry_filename"
-            Placeholder="File Name"/>
+            Placeholder="File name"/>
                     <Image x:Name="image" VerticalOptions="Center"
                             />
 
                     <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
                    FontAttributes="Bold"  FontSize="Small"
-                           Text="For Assistance Contact Your Administrator"/>
+                           Text="For assistance contact your administrator"/>
                     <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
                    FontAttributes="Bold" FontSize="Small"
-                           Text="Or Email Assistance@Sonixsoftwareltd.com"/>
+                           Text="Or email assistance@sonixsoftwareltd.com"/>
+
 
 
                 </StackLayout>

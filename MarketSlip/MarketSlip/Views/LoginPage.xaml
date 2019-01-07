@@ -21,6 +21,7 @@
 
             <StackLayout
                 
+                 
             AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
             AbsoluteLayout.LayoutFlags="All">
                 <Image x:Name="Header" 
@@ -38,30 +39,29 @@
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand">
                     <StackLayout>
-                     <Label x:Name="lbl_username"
+                        <Label x:Name="lbl_username"
                    FontAttributes="Bold"
                    Text="Username"/>
-                   <Entry x:Name="entry_user"
+                        <Entry x:Name="entry_user"
                    Text="{Binding username}"
                    Placeholder="username"/>
-                   <Label x:Name="lbl_password"
+                        <Label x:Name="lbl_password"
                    FontAttributes="Bold"
                    Text="Password"/>
                         <Entry x:Name="entry_password"
                    Text="{Binding password}"
                      IsPassword="True"
                    Placeholder="password"/>
-                    <Button x:Name="btnLogin"
+                        <Button x:Name="btnLogin"
                     Text="Login" 
                     BackgroundColor="White" BorderWidth="2" BorderColor="Black"
                     Clicked="btnLogin_Clicked"/>
                         <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"  FontSize="Small"
                    FontAttributes="Bold"
-                           Text="For Registration Please Visit www.MarketSlip.com Or Contact Your Administrator "/>
+                           Text="For registration please visit www.marketslip.com or contact your administrator "/>
                         <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"  FontSize="Small"
                    FontAttributes="Bold"
-                           Text="Or Email Assistance@Sonixsoftwareltd.com"/> 
-                        
+                           Text="Or email assistance@sonixsoftwareltd.com"/>
                     </StackLayout>
                     
                 </Frame>

@@ -12,7 +12,7 @@ namespace MarketSlip
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new CustomerNotes());
         }
 
         protected override void OnStart()

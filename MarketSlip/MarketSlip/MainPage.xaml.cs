@@ -43,59 +43,49 @@ namespace MarketSlip
             );
             return layout;
         };
-       
+
         private async void Take_Photo_Button_Clicked(object sender, EventArgs e)
         {
             takePhoto.IsEnabled = false;
-        
+
             takePhoto.Text = "Uploading ...";
             Regex reg = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
             if (!reg.IsMatch(entry_email.Text))
             {
-                await DisplayAlert("Invalid Email Address", "Please Enter Valid Email Address", "OK");
+                await DisplayAlert("Invalid email Address", "Please enter valid email address", "OK");
 
                 takePhoto.IsEnabled = true;
-                takePhoto.Text = "TAKE PHOTO";
+                takePhoto.Text = "Take Photo";
                 lblUpload.IsVisible = false;
-             
+
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(entry_email.Text))
             {
 
-                await DisplayAlert("No Email Address", "Please Enter A Email Address", "OK");
+                await DisplayAlert("No email address", "Please enter a email address", "Ok");
 
                 takePhoto.IsEnabled = true;
                 takePhoto.Text = "TAKE PHOTO";
                 lblUpload.IsVisible = false;
-              
+
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(entry_email.Text))
-            {
 
-                await DisplayAlert("No Email Address", "Please Enter A Email Address", "OK");
-
-                takePhoto.IsEnabled = true;
-                takePhoto.Text = "TAKE PHOTO";
-                lblUpload.IsVisible = false;
-              
-                return;
-            }
 
 
             if (string.IsNullOrWhiteSpace(entry_filename.Text))
             {
 
 
-                await DisplayAlert("No File Name", "Please Enter A File Name", "OK");
+                await DisplayAlert("No file name", "Please enter a file name", "Ok");
 
                 takePhoto.IsEnabled = true;
-                takePhoto.Text = "TAKE PHOTO";
+                takePhoto.Text = "Take Photo";
                 lblUpload.IsVisible = false;
-                
+
                 return;
             }
             await CrossMedia.Current.Initialize();
@@ -105,9 +95,9 @@ namespace MarketSlip
 
                 await DisplayAlert("No Camera", "No Camera Avaliable", "OK");
                 takePhoto.IsEnabled = true;
-                takePhoto.Text = "TAKE PHOTO";
+                takePhoto.Text = "Take Photo";
+                lblUpload.IsVisible = false;
 
-               
                 return;
             }
 
@@ -121,19 +111,22 @@ namespace MarketSlip
                     count++;
                     _Mediafile = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions()
                     {
-                        
+
                         Directory = "Sample",
-                        PhotoSize = PhotoSize.Custom, 
+                        PhotoSize = PhotoSize.Custom,
                         CustomPhotoSize = 25,
                         AllowCropping = true,
                         //OverlayViewProvider = func,
-                        //MaxWidthHeight = 50,
+                        MaxWidthHeight = 150,  
                         Name = GlobalVar.User + "_" + entry_email.Text + "_" + entry_filename.Text + "_" + GlobalVar.strGuid + "_" + strmillisecond + "_" + count.ToString() + ".jpg"
 
                     });
 
                     if (_Mediafile == null)
-                        return;
+                        takePhoto.IsEnabled = true;
+                    takePhoto.Text = "Take Photo";
+                    lblUpload.IsVisible = false;
+                    return;
 
                     var content = new MultipartFormDataContent();
 
@@ -150,7 +143,7 @@ namespace MarketSlip
                     var httpresponse = await httpClient.PostAsync(Uploadtoserveraddress, content);
 
                     lblUpload.IsVisible = false;
-                    response = await DisplayActionSheet(count.ToString() + " Images Uploaded,  Add More?", "Yes", "No");
+                    response = await DisplayActionSheet(count.ToString() + " Images uploaded....   Add more?", "Yes", "No");
 
 
 
@@ -161,7 +154,7 @@ namespace MarketSlip
                 count = 0;
 
                 string notes = null;
-                notes = await DisplayActionSheet("       Add Notes To File?", "Yes", "No");
+                notes = await DisplayActionSheet("       Add notes to file?", "Yes", "No");
                 if (notes != "Yes")
                 {
 
@@ -173,20 +166,21 @@ namespace MarketSlip
                     GlobalVar.strMillisecond = strmillisecond;
                     GlobalVar.strRecipient = entry_email.Text;
                     takePhoto.IsEnabled = true;
-                    takePhoto.Text = "UPLOAD PHOTO";
+                    takePhoto.Text = "Take Photo";
+                    lblUpload.IsVisible = false;
 
-                    
+
                     await Navigation.PushAsync(new CustomerNotes());
                 }
             }
             catch (Exception ee)
 
             {
-                await DisplayAlert("Error", "Please check camera permission's and try again", "OK");
+                await DisplayAlert("Error", "Please check camera permission's and try again", "Ok");
                 takePhoto.IsEnabled = true;
-                takePhoto.Text = "TAKE PHOTO";
+                takePhoto.Text = "Take Photo";
                 lblUpload.IsVisible = false;
-                
+
             }
 
 
@@ -196,15 +190,16 @@ namespace MarketSlip
 
 
             takePhoto.IsEnabled = true;
-            takePhoto.Text = "TAKE PHOTO";
+            takePhoto.Text = "Take Photo";
             lblUpload.IsVisible = false;
-            
+
 
 
 
         }
 
-       
+
+
 
 
     }

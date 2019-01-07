@@ -35,10 +35,10 @@
                     Clicked="btnCustomerNotes_Clicked"/>
                         <Label x:Name="lblDetails1" HorizontalTextAlignment="Center"
                    FontAttributes="Bold"
-                           Text="For Assistance Please Visit www.MarketSlip.com"/>
+                           Text="For assistance please visit www.marketSlip.com"/>
                         <Label x:Name="lbl_details2" HorizontalTextAlignment="Center"
                    FontAttributes="Bold"
-                           Text="Or Email Assistance@Sonixsoftwareltd.com"/>
+                           Text="Or email assistance@sonixsoftwareltd.com"/>
 
                     </StackLayout>
 
